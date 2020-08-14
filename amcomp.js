@@ -126,12 +126,15 @@ Bot.on("message", (Msg) => ReadCommand(Msg));
 
 function ReadCommand(Msg)
 {
-    if (!Msg.content.startsWith(CP) || ActiveCalls[Msg.author.id] || !InBotsChannel(Msg.guild.id, Msg.channel.id))
+    if (!Msg.content.startsWith(CP) || ActiveCalls[Msg.author.id])
         return;
 
     const Message = Msg.content.substr(CP.length);
     const Command = Message.split(' ')[0].toLowerCase();
     let Arguments = StrSplitOnce(Message, 1);
+
+    if (Command != "botchannel" && !InBotsChannel(Msg.guild.id, Msg.channel.id))
+        return;
 
     switch (Command)
     {
@@ -152,7 +155,7 @@ function ReadCommand(Msg)
                 return Msg.channel.send({embed: InsufficentRightsEmbed});
 
             const NewChannel = StrSplitOnce(Message, 1);
-            ChangeBotsChannel(Msg.guild.id, NewChannel);
+            ChangeBotsChannel(Msg.guild.id, NewChannel, NewChannel.trim().length == 0 ? 1 : 0);
 
             Msg.channel.send({embed: ChannelChangedEmbed});
             break;
@@ -181,9 +184,9 @@ function StrSplitOnce(Str, Part = 0, Delim = ' ')
 
 function ChangeBotsChannel(ServerId, NewChannelId, Erase = 0)
 {
-    DBConnection.query(`delete from AMCompiler where ServerId = ${ServerId};`);
+    DBConnection.query(`delete from AMCompiler where ServerId = "${ServerId}";`);
     if (!Erase)
-        DBConnection.query(`insert into AMCompiler values (${ServerId}, ${NewChannelId});`);
+        DBConnection.query(`insert into AMCompiler values ("${ServerId}", "${NewChannelId}");`);
 
     BotChannels[ServerId] = Erase ? undefined : NewChannelId;
 }
