@@ -17,6 +17,8 @@ A Discord bot written in JavaScript for compiling SM/AMXX plugins.
 - If you are running the bot on Linux, change the variable **OnLinux** (line #15) to true.
 - Download AMXX and SP from the official websites and copy the compilers (folder **"scripting"**) to folders **"AMXX"** and **"SP"** respectively.
 
+
+
 AmxModX downloads:
 - https://www.amxmodx.org/downloads-new.php
   or
