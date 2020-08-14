@@ -29,8 +29,8 @@ DBConnection.connect(function(Error) {
         throw Error;
 });
 
-let ActiveCalls = new Array();
-let BotChannels = new Array();
+let ActiveCalls = [];
+let BotChannels = [];
 
 const HelpEmbed = {
     color: 0x0000FF,
