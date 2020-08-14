@@ -157,14 +157,6 @@ function ReadCommand(Msg)
             Msg.channel.send({embed: ChannelChangedEmbed});
             break;
 
-        case "botchannel":
-            if (Msg.author.id != Msg.guild.ownerID)
-                return Msg.channel.send({embed: InsufficentRightsEmbed});
-
-            ChangeBotsChannel(Msg.guild.id, NewChannel);
-            Msg.channel.send({embed: ChannelChangedEmbed});
-            break;
-
         case "compile":
             if (Arguments.includes('\n```'))
                 Arguments = Arguments.replace("\n```", " ```");
