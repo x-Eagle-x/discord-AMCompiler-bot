@@ -1,5 +1,5 @@
 # AMCompiler
-A Discord bot written in JavaScript for compiling SM/AMXX plugins.
+A Discord bot written in JavaScript for compiling SM/AMXX plugins. Type "$help" for seeing the available commands.
 
 ## Installation
 
