@@ -15,7 +15,7 @@ A Discord bot written in JavaScript for compiling SM/AMXX plugins. Type "$help" 
 
 - Edit the configuration file (**"auth.json"**)
 - If you are running the bot on Linux, change the variable **OnLinux** (line #15) to true.
-- By default there's no need (FOR WINDOWS) but you may download AMXX and SP from the official websites and copy the compilers (folder **"scripting"**) to folders **"AMXX"** and **"SP"** respectively.
+- By default there's no need but you may download AMXX and SP from the official websites and copy the compilers (folder **"scripting"**) to folders **"AMXX"** and **"SP"** respectively.
 
 
 
